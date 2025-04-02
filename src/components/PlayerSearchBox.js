@@ -8,7 +8,6 @@ const PlayerSearchBox = ({ players, onSelectPlayer }) => {
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
   const resultsRef = useRef(null);
-
   // Handle search input change
   useEffect(() => {
     if (query.length > 0) {
@@ -41,7 +40,7 @@ const PlayerSearchBox = ({ players, onSelectPlayer }) => {
 
   // Handle player selection
   const handleSelectPlayer = (player) => {
-    setQuery(player.Name);
+    setQuery(player.name);
     setIsOpen(false);
     onSelectPlayer(player);
   };

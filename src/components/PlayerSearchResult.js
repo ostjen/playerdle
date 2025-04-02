@@ -8,12 +8,12 @@ const PlayerSearchResult = ({ player, onClick }) => {
     >
       <div className="flex items-center justify-between">
         <div>
-          <div className="font-medium">{player.Name}</div>
-          <div className="text-sm text-gray-500">{player.Nation}</div>
+          <div className="font-medium">{player.name}</div>
+          <div className="text-sm text-gray-500">{player.nation}</div>
         </div>
         <div className="text-right">
           <div className="text-gray-700">{player.Team}</div>
-          <div className="text-sm text-gray-500">{player.Position}</div>
+          <div className="text-sm text-gray-500">{player.position}</div>
         </div>
       </div>
     </li>

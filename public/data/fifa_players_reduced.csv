@@ -1,4 +1,4 @@
-,Name,Age,Nation,Height,League,Team,Position,Alternative positions,OVR
+id,name,age,nation,height,league,team,position,alternative_positions,ovr
 0,Kylian Mbappé,25,France,"182cm / 6'0""",LALIGA EA SPORTS,Real Madrid,ST,LW,91
 1,Rodri,28,Spain,"191cm / 6'3""",Premier League,Manchester City,CDM,CM,91
 2,Erling Haaland,24,Norway,"195cm / 6'5""",Premier League,Manchester City,ST,,91

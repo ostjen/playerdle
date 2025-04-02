@@ -11,7 +11,7 @@ const PlayerInfo = ({ player }) => {
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">{player.Name}</h2>
+      <h2 className="text-xl font-bold mb-4">{player.name}</h2>
       <div className="grid grid-cols-2 gap-4">
         <div className="bg-gray-50 p-3 rounded">
           <div className="text-sm text-gray-500">Nation</div>

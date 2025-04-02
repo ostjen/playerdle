@@ -23,7 +23,7 @@ export const searchPlayers = (query, players) => {
   const lowerQuery = query.toLowerCase();
   
   return players
-    .filter(player => player.Name?.toLowerCase().includes(lowerQuery))
+    .filter(player => player.name?.toLowerCase().includes(lowerQuery))
     .slice(0, 10); // Limit to 10 results
 };
 
