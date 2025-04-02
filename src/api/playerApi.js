@@ -3,7 +3,7 @@
 // Utility function to parse a CSV string into an array of objects
 const parseCSV = (csvString) => {
   const lines = csvString.split('\n');
-  const headers = lines[0].split(',');
+  const headers = lines[0].split(',').map(header => header.trim());
   
   return lines.slice(1)
     .filter(line => line.trim() !== '')
@@ -31,7 +31,29 @@ const parseCSV = (csvString) => {
       // Create an object from the array of values
       const player = {};
       headers.forEach((header, index) => {
-        player[header.trim()] = values[index]?.trim() || '';
+        let value = values[index]?.trim() || '';
+        
+        // Remove quotes if present
+        if (value.startsWith('"') && value.endsWith('"')) {
+          value = value.substring(1, value.length - 1);
+        }
+        
+        // Try to auto-detect and convert numeric values
+        if (value !== '') {
+          // Check if value is a number
+          if (!isNaN(value) && !isNaN(parseFloat(value))) {
+            // Integer check (no decimal point)
+            if (value.indexOf('.') === -1) {
+              player[header] = parseInt(value, 10);
+            } else {
+              player[header] = parseFloat(value);
+            }
+          } else {
+            player[header] = value;
+          }
+        } else {
+          player[header] = value;
+        }
       });
       
       return player;
@@ -41,11 +63,11 @@ const parseCSV = (csvString) => {
 // Mock data if we can't load the CSV
 const generateMockPlayers = () => {
   return [
-    { Name: "Lionel Messi", Nation: "Argentina", Team: "Inter Miami CF", Position: "RW", Age: "37" },
-    { Name: "Cristiano Ronaldo", Nation: "Portugal", Team: "Al Nassr", Position: "ST", Age: "39" },
-    { Name: "Kylian Mbappé", Nation: "France", Team: "Real Madrid", Position: "ST", Age: "25" },
-    { Name: "Erling Haaland", Nation: "Norway", Team: "Manchester City", Position: "ST", Age: "24" },
-    { Name: "Jude Bellingham", Nation: "England", Team: "Real Madrid", Position: "CAM", Age: "21" }
+    { name: "Lionel Messi", nation: "Argentina", team: "Inter Miami CF", position: "RW", age: 37 },
+    { name: "Cristiano Ronaldo", nation: "Portugal", team: "Al Nassr", position: "ST", age: 39 },
+    { name: "Kylian Mbappé", nation: "France", team: "Real Madrid", position: "ST", age: 25 },
+    { name: "Erling Haaland", nation: "Norway", team: "Manchester City", position: "ST", age: 24 },
+    { name: "Jude Bellingham", nation: "England", team: "Real Madrid", position: "CAM", age: 21 }
   ];
 };
 
@@ -61,6 +83,7 @@ export const loadPlayers = async () => {
     }
     
     const csvData = await response.text();
+    
     return parseCSV(csvData);
   } catch (error) {
     console.error('Error loading players:', error);

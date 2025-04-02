@@ -3,8 +3,9 @@ import './App.css';
 import { getPlayers } from './utils/playerData';
 import PlayerSearchBox from './components/PlayerSearchBox';
 import PlayerInfo from './components/PlayerInfo';
+import { get_matches, MatchType } from './utils/app_utils';
 
-const hardcoded_response_id = '16'
+const hardcoded_response_id = 16
 
 // Helper function to get the target player
 const getTargetPlayer = (players) => {
@@ -45,20 +46,11 @@ function App() {
     
     // Add player to guesses with match information
     const targetPlayer = getTargetPlayer(players);
-    console.log(targetPlayer);
-    console.log(player);
     if (targetPlayer) {
       const newGuess = {
         player,
-        matches: {
-          nation: player.nation === targetPlayer.nation,
-          league: player.league === targetPlayer.league,
-          position: player.position === targetPlayer.position,
-          height: player.height === targetPlayer.height,
-          age: player.age === targetPlayer.age
-        }
+        matches: get_matches(player, targetPlayer)
       };
-      console.log(newGuess);
       setGuesses(prevGuesses => [...prevGuesses, newGuess]);
     }
   };
@@ -95,7 +87,7 @@ function App() {
                         {/* Nation column */}
                         <div className="flex flex-col">
                           <span className="text-gray-500 mb-1">Nation</span>
-                          <div className={`p-1 text-center rounded ${guess.matches.nation ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
+                          <div className={`p-1 text-center rounded ${guess.matches.nation === MatchType.EXACT ? 'bg-green-500 text-white' : guess.matches.nation === MatchType.PARTIAL ? 'bg-yellow-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.nation}
                           </div>
                         </div>
@@ -103,7 +95,7 @@ function App() {
                         {/* League column */}
                         <div className="flex flex-col">
                           <span className="text-gray-500 mb-1">League</span>
-                          <div className={`p-1 text-center rounded ${guess.matches.league ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
+                          <div className={`p-1 text-center rounded ${guess.matches.league === MatchType.EXACT ? 'bg-green-500 text-white' : guess.matches.league === MatchType.PARTIAL ? 'bg-yellow-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.league}
                           </div>
                         </div>
@@ -111,7 +103,7 @@ function App() {
                         {/* Position column */}
                         <div className="flex flex-col">
                           <span className="text-gray-500 mb-1">Position</span>
-                          <div className={`p-1 text-center rounded ${guess.matches.position ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
+                          <div className={`p-1 text-center rounded ${guess.matches.position === MatchType.EXACT ? 'bg-green-500 text-white' : guess.matches.position === MatchType.PARTIAL ? 'bg-yellow-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.position}
                           </div>
                         </div>
@@ -119,7 +111,7 @@ function App() {
                         {/* Height column */}
                         <div className="flex flex-col">
                           <span className="text-gray-500 mb-1">Height</span>
-                          <div className={`p-1 text-center rounded ${guess.matches.height ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
+                          <div className={`p-1 text-center rounded ${guess.matches.height === MatchType.EXACT ? 'bg-green-500 text-white' : guess.matches.height === MatchType.PARTIAL ? 'bg-yellow-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.height}
                           </div>
                         </div>
@@ -127,7 +119,7 @@ function App() {
                         {/* Age column */}
                         <div className="flex flex-col">
                           <span className="text-gray-500 mb-1">Age</span>
-                          <div className={`p-1 text-center rounded ${guess.matches.age ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
+                          <div className={`p-1 text-center rounded ${guess.matches.age === MatchType.EXACT ? 'bg-green-500 text-white' : guess.matches.age === MatchType.PARTIAL ? 'bg-yellow-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.age}
                           </div>
                         </div>
