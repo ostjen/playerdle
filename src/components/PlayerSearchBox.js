@@ -42,6 +42,7 @@ const PlayerSearchBox = ({ players, onSelectPlayer }) => {
   const handleSelectPlayer = (player) => {
     setQuery(player.name);
     setIsOpen(false);
+    setQuery('');
     onSelectPlayer(player);
   };
 

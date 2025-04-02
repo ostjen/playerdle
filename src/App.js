@@ -39,7 +39,6 @@ function App() {
   // Handle player selection
   const handleSelectPlayer = (player) => {
     setSelectedPlayer(player);
-    console.log(player);
     if (player.id === hardcoded_response_id) {
       setGameWon(true);
     }
@@ -98,9 +97,6 @@ function App() {
                           <span className="text-gray-500 mb-1">Nation</span>
                           <div className={`p-1 text-center rounded ${guess.matches.nation ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.nation}
-                            {guess.matches.nation ? 
-                              <span className="ml-1">✓</span> : 
-                              <span className="ml-1">✗</span>}
                           </div>
                         </div>
                         
@@ -109,9 +105,6 @@ function App() {
                           <span className="text-gray-500 mb-1">League</span>
                           <div className={`p-1 text-center rounded ${guess.matches.league ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.league}
-                            {guess.matches.league ? 
-                              <span className="ml-1">✓</span> : 
-                              <span className="ml-1">✗</span>}
                           </div>
                         </div>
                         
@@ -120,9 +113,6 @@ function App() {
                           <span className="text-gray-500 mb-1">Position</span>
                           <div className={`p-1 text-center rounded ${guess.matches.position ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.position}
-                            {guess.matches.position ? 
-                              <span className="ml-1">✓</span> : 
-                              <span className="ml-1">✗</span>}
                           </div>
                         </div>
                         
@@ -131,9 +121,6 @@ function App() {
                           <span className="text-gray-500 mb-1">Height</span>
                           <div className={`p-1 text-center rounded ${guess.matches.height ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.height}
-                            {guess.matches.height ? 
-                              <span className="ml-1">✓</span> : 
-                              <span className="ml-1">✗</span>}
                           </div>
                         </div>
                         
@@ -142,9 +129,6 @@ function App() {
                           <span className="text-gray-500 mb-1">Age</span>
                           <div className={`p-1 text-center rounded ${guess.matches.age ? 'bg-green-500 text-white' : 'bg-red-100'}`}>
                             {guess.player.age}
-                            {guess.matches.age ? 
-                              <span className="ml-1">✓</span> : 
-                              <span className="ml-1">✗</span>}
                           </div>
                         </div>
                       </div>
