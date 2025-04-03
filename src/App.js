@@ -20,7 +20,31 @@ function App() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [guesses, setGuesses] = useState([]);
   const [gameWon, setGameWon] = useState(false);
+  const today = new Date().toISOString().split('T')[0];
 
+  // Fix loading guesses from local storage
+  useEffect(() => {
+    const storedGuessesString = localStorage.getItem('guesses');
+    if (storedGuessesString) {
+      try {
+        const storedGuesses = JSON.parse(storedGuessesString);
+        if (storedGuesses[today]) {
+          console.log("Loading guesses from local storage:", storedGuesses[today]);
+          setGuesses(storedGuesses[today]);
+          
+          // Also set game state if player has already won
+          const lastGuess = storedGuesses[today][storedGuesses[today].length - 1];
+          if (lastGuess && lastGuess.player.id === hardcoded_response_id) {
+            setGameWon(true);
+            setSelectedPlayer(lastGuess.player);
+          }
+        }
+      } catch (error) {
+        console.error("Error parsing stored guesses:", error);
+      }
+    }
+  }, []);
+  
   // Load players on component mount
   useEffect(() => {
     const loadPlayers = async () => {
@@ -37,6 +61,8 @@ function App() {
     loadPlayers();
   }, []);
 
+  
+
   // Handle player selection
   const handleSelectPlayer = (player) => {
     setSelectedPlayer(player);
@@ -51,7 +77,25 @@ function App() {
         player,
         matches: get_matches(player, targetPlayer)
       };
-      setGuesses(prevGuesses => [...prevGuesses, newGuess]);
+      
+      // Update guesses state with new guess
+      const updatedGuesses = [...guesses, newGuess];
+      setGuesses(updatedGuesses);
+      
+      // Save UPDATED guesses to local storage
+      try {
+        // Get existing guesses data or initialize empty object
+        const existingDataString = localStorage.getItem('guesses');
+        const existingData = existingDataString ? JSON.parse(existingDataString) : {};
+        
+        // Update with today's guesses
+        existingData[today] = updatedGuesses;
+        
+        // Save back to localStorage
+        localStorage.setItem('guesses', JSON.stringify(existingData));
+      } catch (error) {
+        console.error("Error saving guesses to localStorage:", error);
+      }
     }
   };
 
@@ -82,7 +126,38 @@ function App() {
                 <div className="space-y-4">
                   {guesses.map((guess, index) => (
                     <div key={index} className="border rounded p-3 mb-3">
-                      <div className="font-semibold mb-2">{guess.player.name}</div>
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="font-semibold">{guess.player.name}</div>
+                        <div className="flex-shrink-0">
+                          {(() => {
+                            console.log("Guess player:", guess.player);
+                            const imageData = guess.player.images || guess.player.image || guess.player.imagedata || guess.player.img;
+                            
+                            if (imageData) {
+                              // Check if the image data already includes the data:image prefix
+                              const imgSrc = imageData.startsWith('data:') 
+                                ? imageData 
+                                : `data:image/jpeg;base64,${imageData}`;
+                              
+                              return (
+                                <img 
+                                  src={imgSrc} 
+                                  alt={guess.player.name} 
+                                  className="w-10 h-10 rounded-full object-cover border border-gray-300"
+                                />
+                              );
+                            } else {
+                              return (
+                                <img 
+                                  src={`${process.env.PUBLIC_URL}/images/unknown_pfp.png`} 
+                                  alt="Unknown player" 
+                                  className="w-10 h-10 rounded-full object-cover border border-gray-300"
+                                />
+                              );
+                            }
+                          })()}
+                        </div>
+                      </div>
                       <div className="grid grid-cols-5 gap-2 text-xs">
                         {/* Nation column */}
                         <div className="flex flex-col">
@@ -129,8 +204,28 @@ function App() {
                 </div>
               </div>
             ) : (
-              <div className="h-48 flex items-center justify-center">
-                <p className="text-gray-500">Select a player to see details</p>
+              <div className="h-auto flex flex-col items-center justify-center space-y-4 p-4">
+                <h2 className="text-xl font-semibold text-gray-700">How to Play ⚽︎</h2>
+                <p className="text-gray-600 text-center">Guess the mystery football player in 5 chances or less!</p>
+                <div className="w-full bg-gray-100 rounded-lg p-4 mt-2">
+                  <p className="text-gray-700 font-medium mb-2">Match these attributes:</p>
+                  <ul className="space-y-2 text-sm">
+                    <li className="flex items-center"><span className="mr-4">🌍</span> <strong>Nation</strong></li>
+                    <li className="flex items-center"><span className="mr-4">🏆</span> <strong>League</strong></li>
+                    <li className="flex items-center"><span className="mr-4">👕</span> <strong>Position</strong></li>
+                    <li className="flex items-center"><span className="mr-4">📏</span> <strong>Height</strong></li>
+                    <li className="flex items-center"><span className="mr-4">🎂</span> <strong>Age</strong></li>
+                  </ul>
+                </div>
+                <div className="w-full bg-gray-100 rounded-lg p-4">
+                  <p className="text-gray-700 font-medium mb-2">Color guide:</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-center"><span className="w-4 h-4 bg-green-500 rounded mr-2"></span> Exact match</div>
+                    <div className="flex items-center"><span className="w-4 h-4 bg-yellow-500 rounded mr-2"></span> Close match</div>
+                    <div className="flex items-center"><span className="w-4 h-4 bg-red-500 rounded mr-2"></span> No match</div>
+                  </div>
+                </div>
+                <p className="text-gray-500 italic mt-2">Select a player below to start guessing!</p>
               </div>
             )}
           </div>

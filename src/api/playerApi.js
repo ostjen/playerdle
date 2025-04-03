@@ -60,34 +60,35 @@ const parseCSV = (csvString) => {
     });
 };
 
-// Mock data if we can't load the CSV
-const generateMockPlayers = () => {
-  return [
-    { name: "Lionel Messi", nation: "Argentina", team: "Inter Miami CF", position: "RW", age: 37 },
-    { name: "Cristiano Ronaldo", nation: "Portugal", team: "Al Nassr", position: "ST", age: 39 },
-    { name: "Kylian Mbappé", nation: "France", team: "Real Madrid", position: "ST", age: 25 },
-    { name: "Erling Haaland", nation: "Norway", team: "Manchester City", position: "ST", age: 24 },
-    { name: "Jude Bellingham", nation: "England", team: "Real Madrid", position: "CAM", age: 21 }
-  ];
-};
 
 // Function to load player data
 export const loadPlayers = async () => {
   try {
     // Try to fetch from the public directory
-    const response = await fetch(`${process.env.PUBLIC_URL}/data/fifa_players_reduced.csv`);
+    const response = await fetch(`${process.env.PUBLIC_URL}/data/reduced_with_images.csv`);
     
     if (!response.ok) {
       console.warn('Could not load player data, using mock data instead');
-      return generateMockPlayers();
     }
     
     const csvData = await response.text();
+    const players = parseCSV(csvData);
     
-    return parseCSV(csvData);
+    // Debug: Log the first player to see its structure
+    if (players && players.length > 0) {
+      console.log("First player data structure:", players[0]);
+      console.log("Player image data field names:", 
+        Object.keys(players[0]).filter(key => 
+          key.toLowerCase().includes('image') || 
+          key.toLowerCase().includes('img') || 
+          key.toLowerCase().includes('photo')
+        )
+      );
+    }
+    
+    return players;
   } catch (error) {
     console.error('Error loading players:', error);
-    return generateMockPlayers();
   }
 };
 
