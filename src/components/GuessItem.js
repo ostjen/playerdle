@@ -19,7 +19,33 @@ function GuessItem({ guess }) {
           matchType={guess.matches.nation} 
         />
         
-        {/* Other attributes... */}
+        {/* League column */}
+        <AttributeCell 
+          label="League" 
+          value={guess.player.league} 
+          matchType={guess.matches.league} 
+        />
+        
+        {/* Position column */}
+        <AttributeCell 
+          label="Position" 
+          value={guess.player.position} 
+          matchType={guess.matches.position} 
+        />
+        
+        {/* Height column */}
+        <AttributeCell 
+          label="Height" 
+          value={guess.player.height} 
+          matchType={guess.matches.height} 
+        />
+        
+        {/* Age column */}
+        <AttributeCell 
+          label="Age" 
+          value={guess.player.age} 
+          matchType={guess.matches.age} 
+        />
       </div>
     </div>
   );

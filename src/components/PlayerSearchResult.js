@@ -6,15 +6,22 @@ const PlayerSearchResult = ({ player, onClick }) => {
   
   // Determine which field has the image data
   const imageData = player.images || player.image || player.imagedata || player.img;
+  
   // Check if the image data already includes the data:image prefix
   const imgSrc = imageData && imageData.startsWith('data:') 
     ? imageData 
     : imageData ? `data:image/jpeg;base64,${imageData}` : null;
   
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onClick(player);
+  };
+  
   return (
     <li 
       className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-b-0 transition-colors duration-150"
-      onClick={() => onClick(player)}
+      onClick={handleClick}
     >
       <div className="flex items-center">
         <div className="mr-3 flex-shrink-0">
@@ -38,7 +45,7 @@ const PlayerSearchResult = ({ player, onClick }) => {
             <div className="text-sm text-gray-500">{player.nation}</div>
           </div>
           <div className="text-right">
-            <div className="text-gray-700">{player.Team}</div>
+            <div className="text-gray-700">{player.league || player.Team}</div>
             <div className="text-sm text-gray-500">{player.position}</div>
           </div>
         </div>
