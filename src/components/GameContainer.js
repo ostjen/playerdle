@@ -34,7 +34,8 @@ const GameContainer = ({
           ) : (
             <PlayerSearchBox 
               players={players} 
-              onSelectPlayer={onSelectPlayer} 
+              onSelectPlayer={onSelectPlayer}
+              guesses={guesses}
             />
           )}
         </div>

@@ -2,25 +2,34 @@ import React, { useState, useEffect, useRef } from 'react';
 import { searchPlayers } from '../utils/playerData';
 import PlayerSearchResult from './PlayerSearchResult';
 
-const PlayerSearchBox = ({ players, onSelectPlayer }) => {
+const PlayerSearchBox = ({ players, onSelectPlayer, guesses = [] }) => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
   const resultsRef = useRef(null);
 
+  // Get the names of already guessed players
+  const guessedPlayerNames = guesses.map(guess => guess.player.name);
+
   // Handle search input change
   useEffect(() => {
     // Only search if we have a query and players data
     if (query.length > 0 && players && players.length > 0) {
       const searchResults = searchPlayers(query, players);
-      setResults(searchResults);
-      setIsOpen(searchResults.length > 0);
+      
+      // Filter out already guessed players
+      const filteredResults = searchResults.filter(
+        player => !guessedPlayerNames.includes(player.name)
+      );
+      
+      setResults(filteredResults);
+      setIsOpen(filteredResults.length > 0);
     } else {
       setResults([]);
       setIsOpen(false);
     }
-  }, [query, players]);
+  }, [query, players, guessedPlayerNames]);
 
   // Close dropdown when clicking outside
   useEffect(() => {

@@ -21,4 +21,21 @@ export const loadGuesses = (date) => {
     console.error("Error parsing stored guesses:", error);
   }
   return [];
+};
+
+export const hasPlayerPlayedBefore = () => {
+  try {
+    // Check for any guesses or completion of onboarding
+    const storedGuessesString = localStorage.getItem('guesses');
+    const onboardingCompleted = localStorage.getItem('onboarding_completed');
+    
+    return (storedGuessesString && Object.keys(JSON.parse(storedGuessesString)).length > 0) || onboardingCompleted === 'true';
+  } catch (error) {
+    console.error("Error checking if player played before:", error);
+  }
+  return false;
+};
+
+export const setOnboardingCompleted = () => {
+  localStorage.setItem('onboarding_completed', 'true');
 }; 

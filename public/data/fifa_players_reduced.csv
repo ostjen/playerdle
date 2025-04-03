@@ -32,7 +32,7 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 30,Bukayo Saka,23,England,"178cm / 5'10""",Premier League,Arsenal,RW,RM,87
 31,Paulo Dybala,30,Argentina,"177cm / 5'10""",Serie A,AS Roma,CAM,ST,87
 32,Theo Hernández,26,France,"184cm / 6'0""",Serie A,Milano FC,LB,LM,87
-33,Neymar Jr,32,Brazil,"175cm / 5'9""",ROSHN Saudi League,Al Hilal,LW,"CAM, LM",87
+33,Neymar Jr,32,Brazil,"175cm / 5'9""", Saudi League,Al Hilal,LW,"CAM, LM",87
 34,Declan Rice,25,England,"185cm / 6'1""",Premier League,Arsenal,CDM,CM,87
 35,Frenkie de Jong,27,Holland,"181cm / 5'11""",La Liga,FC Barcelona,CM,CDM,87
 36,Mike Maignan,29,France,"191cm / 6'3""",Serie A,Milano FC,GK,,87
@@ -44,11 +44,11 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 42,Emiliano Martínez,32,Argentina,"195cm / 6'5""",Premier League,Aston Villa,GK,,87
 43,Nicolò Barella,27,Italy,"172cm / 5'8""",Serie A,Lombardia FC,CM,CDM,87
 44,Yann Sommer,35,Switzerland,"183cm / 6'0""",Serie A,Lombardia FC,GK,,87
-45,Cristiano Ronaldo,39,Portugal,"187cm / 6'2""",ROSHN Saudi League,Al Nassr,ST,,86
+45,Cristiano Ronaldo,39,Portugal,"187cm / 6'2""", Saudi League,Al Nassr,ST,,86
 46,Gabriel,26,Brazil,"190cm / 6'3""",Premier League,Arsenal,CB,,86
 47,Granit Xhaka,31,Switzerland,"186cm / 6'1""",Bundesliga,Leverkusen,CDM,CM,86
 48,Rodrygo,23,Brazil,"174cm / 5'9""",La Liga,Real Madrid,RW,"ST, RM",86
-49,João Cancelo,30,Portugal,"182cm / 6'0""",ROSHN Saudi League,Al Hilal,LB,"RB, RM",86
+49,João Cancelo,30,Portugal,"182cm / 6'0""", Saudi League,Al Hilal,LB,"RB, RM",86
 50,Rafael Leão,25,Portugal,"188cm / 6'2""",Serie A,Milano FC,LW,"LM, ST",86
 51,Grimaldo,28,Spain,"171cm / 5'7""",Bundesliga,Leverkusen,LM,"LB, LW",86
 52,Luka Modrić,39,Croatia,"172cm / 5'8""",La Liga,Real Madrid,CM,"CAM, CDM",86
@@ -58,7 +58,7 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 56,Trent Alexander-Arnold,25,England,"180cm / 5'11""",Premier League,Liverpool,RB,,86
 57,Pedri,21,Spain,"174cm / 5'9""",La Liga,FC Barcelona,CM,LW,86
 58,Jonathan Tah,28,Germany,"195cm / 6'5""",Bundesliga,Leverkusen,CB,,86
-59,Karim Benzema,36,France,"185cm / 6'1""",ROSHN Saudi League,Al Ittihad,ST,,86
+59,Karim Benzema,36,France,"185cm / 6'1""", Saudi League,Al Ittihad,ST,,86
 60,Bremer,27,Brazil,"187cm / 6'2""",Serie A,Juventus,CB,,86
 61,Joshua Kimmich,29,Germany,"177cm / 5'10""",Bundesliga,FC Bayern München,RB,"CDM, CM",86
 62,Unai Simón,27,Spain,"190cm / 6'3""",La Liga,Athletic Club,GK,,86
@@ -70,15 +70,15 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 68,Éder Militão,26,Brazil,"186cm / 6'1""",La Liga,Real Madrid,CB,,85
 69,Bruno Guimarães,26,Brazil,"182cm / 6'0""",Premier League,Newcastle Utd,CDM,CM,85
 70,Alexander Isak,24,Sweden,"192cm / 6'4""",Premier League,Newcastle Utd,ST,,85
-71,N'Golo Kanté,33,France,"168cm / 5'6""",ROSHN Saudi League,Al Ittihad,CDM,CM,85
+71,N'Golo Kanté,33,France,"168cm / 5'6""", Saudi League,Al Ittihad,CDM,CM,85
 72,Jules Koundé,25,France,"180cm / 5'11""",La Liga,FC Barcelona,RB,CB,85
 73,Khvicha Kvaratskhelia,23,Georgia,"183cm / 6'0""",Serie A,SSC Napoli,LW,"RW, LM",85
 74,Vitinha,24,Portugal,"172cm / 5'8""",Ligue 1 McDonald's,Paris SG,CM,CDM,85
 75,James Maddison,27,England,"175cm / 5'9""",Premier League,Spurs,CAM,RM,85
-76,Riyad Mahrez,33,Algeria,"179cm / 5'10""",ROSHN Saudi League,Al Ahli,RM,RW,85
+76,Riyad Mahrez,33,Algeria,"179cm / 5'10""", Saudi League,Al Ahli,RM,RW,85
 77,Giorgi Mamardashvili,23,Georgia,"199cm / 6'6""",La Liga,Valencia CF,GK,,85
 78,Mikel Merino,28,Spain,"189cm / 6'2""",Premier League,Arsenal,CM,CAM,85
-79,Sergej Milinković-Savić,29,Serbia,"192cm / 6'4""",ROSHN Saudi League,Al Hilal,CM,CDM,85
+79,Sergej Milinković-Savić,29,Serbia,"192cm / 6'4""", Saudi League,Al Hilal,CM,CDM,85
 80,Loïs Openda,24,Belgium,"177cm / 5'10""",Bundesliga,RB Leipzig,ST,,85
 81,Palhinha,29,Portugal,"190cm / 6'3""",Bundesliga,FC Bayern München,CDM,CM,85
 82,Cole Palmer,22,England,"189cm / 6'2""",Premier League,Chelsea,RM,"CAM, RW",85
@@ -96,10 +96,10 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 94,Nathan Aké,29,Holland,"180cm / 5'11""",Premier League,Manchester City,CB,LB,84
 95,Julián Álvarez,24,Argentina,"170cm / 5'7""",La Liga,Atlético de Madrid,ST,CAM,84
 96,Iago Aspas,37,Spain,"176cm / 5'9""",La Liga,RC Celta,ST,,84
-97,Yassine Bounou,33,Morocco,"195cm / 6'5""",ROSHN Saudi League,Al Hilal,GK,,84
+97,Yassine Bounou,33,Morocco,"195cm / 6'5""", Saudi League,Al Hilal,GK,,84
 98,Federico Chiesa,26,Italy,"175cm / 5'9""",Premier League,Liverpool,RW,"LW, ST, RM",84
 99,Kingsley Coman,28,France,"181cm / 5'11""",Bundesliga,FC Bayern München,LM,"RM, LW",84
-100,Rúben Neves,27,Portugal,"180cm / 5'11""",ROSHN Saudi League,Al Hilal,CDM,CM,84
+100,Rúben Neves,27,Portugal,"180cm / 5'11""", Saudi League,Al Hilal,CDM,CM,84
 101,Matthijs de Ligt,25,Holland,"189cm / 6'2""",Premier League,Man Utd,CB,,84
 102,Rodrigo De Paul,30,Argentina,"180cm / 5'11""",La Liga,Atlético de Madrid,CM,CDM,84
 103,Raphinha,27,Brazil,"176cm / 5'9""",La Liga,FC Barcelona,RW,"LW, RM",84
@@ -113,8 +113,8 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 111,Viktor Gyökeres,26,Sweden,"187cm / 6'2""",Liga Portugal,Sporting CP,ST,LW,84
 112,Achraf Hakimi,25,Morocco,"181cm / 5'11""",Ligue 1 McDonald's,Paris SG,RB,,84
 113,Lukáš Hrádecký,34,Finland,"192cm / 6'4""",Bundesliga,Leverkusen,GK,,84
-114,Kalidou Koulibaly,33,Senegal,"186cm / 6'1""",ROSHN Saudi League,Al Hilal,CB,,84
-115,Sadio Mané,32,Senegal,"174cm / 5'9""",ROSHN Saudi League,Al Nassr,LM,"RM, ST, LW",84
+114,Kalidou Koulibaly,33,Senegal,"186cm / 6'1""", Saudi League,Al Hilal,CB,,84
+115,Sadio Mané,32,Senegal,"174cm / 5'9""", Saudi League,Al Nassr,LM,"RM, ST, LW",84
 116,Lisandro Martínez,26,Argentina,"178cm / 5'10""",Premier League,Man Utd,CB,,84
 117,Diogo Costa,24,Portugal,"192cm / 6'4""",Liga Portugal,FC Porto,GK,,84
 118,Ferland Mendy,29,France,"180cm / 5'11""",La Liga,Real Madrid,LB,,84
@@ -135,11 +135,11 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 133,Ismaël Bennacer,26,Algeria,"175cm / 5'9""",Serie A,Milano FC,CDM,"CM, CAM",83
 134,Domenico Berardi,30,Italy,"183cm / 6'0""",Serie BKT,Sassuolo,RW,RM,83
 135,Eduardo Camavinga,21,France,"182cm / 6'0""",La Liga,Real Madrid,CM,"CDM, LB",83
-136,Yannick Carrasco,31,Belgium,"181cm / 5'11""",ROSHN Saudi League,Al Shabab,LW,LM,83
+136,Yannick Carrasco,31,Belgium,"181cm / 5'11""", Saudi League,Al Shabab,LW,LM,83
 137,Andreas Christensen,28,Denmark,"187cm / 6'2""",La Liga,FC Barcelona,CB,CDM,83
 138,Stefan de Vrij,32,Holland,"189cm / 6'2""",Serie A,Lombardia FC,CB,,83
 139,Ángel Di María,36,Argentina,"180cm / 5'11""",Liga Portugal,SL Benfica,RM,"CAM, RW",83
-140,Moussa Diaby,25,France,"170cm / 5'7""",ROSHN Saudi League,Al Ittihad,RM,"ST, CAM, RW",83
+140,Moussa Diaby,25,France,"170cm / 5'7""", Saudi League,Al Ittihad,RM,"ST, CAM, RW",83
 141,Youssef En-Nesyri,27,Morocco,"188cm / 6'2""",Trendyol Süper Lig,Fenerbahçe,ST,,83
 142,Rafa,31,Portugal,"172cm / 5'8""",Trendyol Süper Lig,Beşiktaş,CAM,ST,83
 143,Cody Gakpo,25,Holland,"189cm / 6'2""",Premier League,Liverpool,ST,LW,83
@@ -155,7 +155,7 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 153,Teun Koopmeiners,26,Holland,"183cm / 6'0""",Serie A,Juventus,CM,CAM,83
 154,Mateo Kovačić,30,Croatia,"177cm / 5'10""",Premier League,Manchester City,CM,CDM,83
 155,Konrad Laimer,27,Austria,"180cm / 5'11""",Bundesliga,FC Bayern München,CDM,"CM, RB",83
-156,Aymeric Laporte,30,Spain,"189cm / 6'2""",ROSHN Saudi League,Al Nassr,CB,,83
+156,Aymeric Laporte,30,Spain,"189cm / 6'2""", Saudi League,Al Nassr,CB,,83
 157,Robin Le Normand,27,Spain,"187cm / 6'2""",La Liga,Atlético de Madrid,CB,,83
 158,Marcos Llorente,29,Spain,"184cm / 6'0""",La Liga,Atlético de Madrid,RM,"RB, CM, RW",83
 159,Manuel Locatelli,26,Italy,"185cm / 6'1""",Serie A,Juventus,CDM,CM,83
@@ -195,22 +195,22 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 193,Isco,32,Spain,"176cm / 5'9""",La Liga,Real Betis,CAM,"LM, CM",82
 194,Joelinton,28,Brazil,"186cm / 6'1""",Premier League,Newcastle Utd,CM,LW,82
 195,Pepê,27,Brazil,"173cm / 5'8""",Liga Portugal,FC Porto,CAM,"RM, LM",82
-196,Pierre-Emerick Aubameyang,35,Gabon,"187cm / 6'2""",ROSHN Saudi League,Al Qadisiyah,ST,,82
+196,Pierre-Emerick Aubameyang,35,Gabon,"187cm / 6'2""", Saudi League,Al Qadisiyah,ST,,82
 197,Leon Bailey,27,Jamaica,"178cm / 5'10""",Premier League,Aston Villa,RM,"ST, RW",82
 198,Oliver Baumann,34,Germany,"187cm / 6'2""",Bundesliga,TSG Hoffenheim,GK,,82
 199,Victor Boniface,23,Nigeria,"190cm / 6'3""",Bundesliga,Leverkusen,ST,,82
 200,Sven Botman,24,Holland,"193cm / 6'4""",Premier League,Newcastle Utd,CB,,82
 201,Jarrod Bowen,27,England,"175cm / 5'9""",Premier League,West Ham,RM,"ST, RW",82
-202,Marcelo Brozović,31,Croatia,"181cm / 5'11""",ROSHN Saudi League,Al Nassr,CDM,CM,82
+202,Marcelo Brozović,31,Croatia,"181cm / 5'11""", Saudi League,Al Nassr,CDM,CM,82
 203,Moisés Caicedo,22,Ecuador,"178cm / 5'10""",Premier League,Chelsea,CDM,CM,82
 204,Emre Can,30,Germany,"186cm / 6'1""",Bundesliga,Borussia Dortmund,CDM,CB,82
 205,Marco Carnesecchi,24,Italy,"191cm / 6'3""",Serie A,Bergamo Calcio,GK,,82
-206,Koen Casteels,32,Belgium,"197cm / 6'6""",ROSHN Saudi League,Al Qadisiyah,GK,,82
+206,Koen Casteels,32,Belgium,"197cm / 6'6""", Saudi League,Al Qadisiyah,GK,,82
 207,Lucas Paquetá,27,Brazil,"180cm / 5'11""",Premier League,West Ham,LM,"CAM, LW",82
 208,Ángel Correa,29,Argentina,"171cm / 5'7""",La Liga,Atlético de Madrid,ST,RM,82
 209,Marc Cucurella,26,Spain,"173cm / 5'8""",Premier League,Chelsea,LB,,82
 210,Danilo,33,Brazil,"184cm / 6'0""",Serie A,Juventus,CB,RB,82
-211,Otávio,29,Portugal,"171cm / 5'7""",ROSHN Saudi League,Al Nassr,CAM,"RM, CM",82
+211,Otávio,29,Portugal,"171cm / 5'7""", Saudi League,Al Nassr,CAM,"RM, CM",82
 212,Diogo Dalot,25,Portugal,"183cm / 6'0""",Premier League,Man Utd,RB,LB,82
 213,Sergi Darder,30,Spain,"180cm / 5'11""",La Liga,RCD Mallorca,CM,"CAM, CDM",82
 214,Alphonso Davies,23,Canada,"185cm / 6'1""",Bundesliga,FC Bayern München,LB,LM,82
@@ -219,7 +219,7 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 217,Denzel Dumfries,28,Holland,"188cm / 6'2""",Serie A,Lombardia FC,RB,RM,82
 218,Edin Džeko,38,Bosnia and Herzegovina,"193cm / 6'4""",Trendyol Süper Lig,Fenerbahçe,ST,,82
 219,Enzo Fernández,23,Argentina,"178cm / 5'10""",Premier League,Chelsea,CM,CDM,82
-220,Nacho Fernández,34,Spain,"180cm / 5'11""",ROSHN Saudi League,Al Qadisiyah,CB,"LB, RB",82
+220,Nacho Fernández,34,Spain,"180cm / 5'11""", Saudi League,Al Qadisiyah,CB,"LB, RB",82
 221,Gabriel Jesus,27,Brazil,"175cm / 5'9""",Premier League,Arsenal,ST,,82
 222,Jorginho,32,Italy,"178cm / 5'10""",Premier League,Arsenal,CDM,CM,82
 223,Pau Torres,27,Spain,"191cm / 6'3""",Premier League,Aston Villa,CB,,82
@@ -231,13 +231,13 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 229,Anthony Gordon,23,England,"183cm / 6'0""",Premier League,Newcastle Utd,LW,LM,82
 230,Raphaël Guerreiro,30,Portugal,"170cm / 5'7""",Bundesliga,FC Bayern München,LB,CM,82
 231,Péter Gulácsi,34,Hungary,"191cm / 6'3""",Bundesliga,RB Leipzig,GK,,82
-232,Fabinho,30,Brazil,"188cm / 6'2""",ROSHN Saudi League,Al Ittihad,CDM,CM,82
+232,Fabinho,30,Brazil,"188cm / 6'2""", Saudi League,Al Ittihad,CDM,CM,82
 233,Yangel Herrera,26,Venezuela,"184cm / 6'0""",La Liga,Girona FC,CDM,CM,82
 234,Jonas Hofmann,32,Germany,"176cm / 5'9""",Bundesliga,Leverkusen,CAM,ST,82
 235,Ciro Immobile,34,Italy,"185cm / 6'1""",Trendyol Süper Lig,Beşiktaş,ST,,82
 236,Reece James,24,England,"179cm / 5'10""",Premier League,Chelsea,RB,,82
 237,Boubacar Kamara,24,France,"184cm / 6'0""",Premier League,Aston Villa,CDM,CM,82
-238,Franck Yannick Kessié,27,Côte d'Ivoire,"183cm / 6'0""",ROSHN Saudi League,Al Ahli,CDM,CM,82
+238,Franck Yannick Kessié,27,Côte d'Ivoire,"183cm / 6'0""", Saudi League,Al Ahli,CDM,CM,82
 239,Randal Kolo Muani,25,France,"187cm / 6'2""",Ligue 1 McDonald's,Paris SG,ST,,82
 240,Filip Kostić,31,Serbia,"184cm / 6'0""",Serie A,Juventus,LM,"LB, LW",82
 241,Mohammed Kudus,24,Ghana,"177cm / 5'10""",Premier League,West Ham,RM,"CAM, LM, RW",82
@@ -250,7 +250,7 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 248,Romelu Lukaku,31,Belgium,"191cm / 6'3""",Serie A,SSC Napoli,ST,,82
 249,Gianluca Mancini,28,Italy,"190cm / 6'3""",Serie A,AS Roma,CB,,82
 250,John McGinn,29,Scotland,"178cm / 5'10""",Premier League,Aston Villa,CM,"CDM, RM",82
-251,Aleksandar Mitrović,29,Serbia,"189cm / 6'2""",ROSHN Saudi League,Al Hilal,ST,,82
+251,Aleksandar Mitrović,29,Serbia,"189cm / 6'2""", Saudi League,Al Hilal,ST,,82
 252,Nahuel Molina,26,Argentina,"175cm / 5'9""",La Liga,Atlético de Madrid,RB,,82
 253,Savinho,20,Brazil,"176cm / 5'9""",Premier League,Manchester City,LW,LM,82
 254,Thomas Müller,35,Germany,"185cm / 6'1""",Bundesliga,FC Bayern München,CAM,ST,82
@@ -266,10 +266,10 @@ id,name,age,nation,height,league,team,position,alternative_positions,ovr
 264,Fabian Schär,32,Switzerland,"188cm / 6'2""",Premier League,Newcastle Utd,CB,,82
 265,Patrik Schick,28,Czech Republic,"191cm / 6'3""",Bundesliga,Leverkusen,ST,,82
 266,Luke Shaw,29,England,"181cm / 5'11""",Premier League,Man Utd,LB,CB,82
-267,Malcom,27,Brazil,"172cm / 5'8""",ROSHN Saudi League,Al Hilal,CAM,RM,82
-268,Chris Smalling,34,England,"194cm / 6'4""",ROSHN Saudi League,Al Fayha,CB,,82
+267,Malcom,27,Brazil,"172cm / 5'8""", Saudi League,Al Hilal,CAM,RM,82
+268,Chris Smalling,34,England,"194cm / 6'4""", Saudi League,Al Fayha,CB,,82
 269,Alexander Sørloth,28,Norway,"195cm / 6'5""",La Liga,Atlético de Madrid,ST,,82
-270,Anderson Talisca,30,Brazil,"191cm / 6'3""",ROSHN Saudi League,Al Nassr,RM,"CAM, ST, RW",82
+270,Anderson Talisca,30,Brazil,"191cm / 6'3""", Saudi League,Al Nassr,RM,"CAM, ST, RW",82
 271,Luis Suárez,37,Uruguay,"182cm / 6'0""",MLS,Inter Miami CF,ST,,82
 272,Niklas Süle,29,Germany,"195cm / 6'5""",Bundesliga,Borussia Dortmund,CB,RB,82
 273,Kevin Trapp,34,Germany,"189cm / 6'2""",Bundesliga,Frankfurt,GK,,82
