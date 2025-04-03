@@ -39,19 +39,19 @@ const PlayerInfo = ({ player }) => {
       <div className="grid grid-cols-2 gap-4">
         <div className="bg-gray-50 p-3 rounded">
           <div className="text-sm text-gray-500">Nation</div>
-          <div className="font-medium">{player.Nation}</div>
+          <div className="font-medium">{player.nation}</div>
         </div>
         <div className="bg-gray-50 p-3 rounded">
           <div className="text-sm text-gray-500">Age</div>
-          <div className="font-medium">{player.Age}</div>
+          <div className="font-medium">{player.age}</div>
         </div>
         <div className="bg-gray-50 p-3 rounded">
           <div className="text-sm text-gray-500">Team</div>
-          <div className="font-medium">{player.Team}</div>
+          <div className="font-medium">{player.team}</div>
         </div>
         <div className="bg-gray-50 p-3 rounded">
           <div className="text-sm text-gray-500">Position</div>
-          <div className="font-medium">{player.Position}</div>
+          <div className="font-medium">{player.position}</div>
         </div>
       </div>
     </div>

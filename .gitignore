@@ -1,4 +1,5 @@
 # Logs
+.ipynb
 logs
 *.log
 npm-debug.log*

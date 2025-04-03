@@ -4,53 +4,35 @@ import { getPlayers } from './utils/playerData';
 import PlayerSearchBox from './components/PlayerSearchBox';
 import PlayerInfo from './components/PlayerInfo';
 import { get_matches, MatchType } from './utils/app_utils';
-
-const hardcoded_response_id = 16
+import { TARGET_PLAYER_ID, MAX_GUESSES } from './constants';
+import { loadGuesses } from './utils/storage';
+import GameFooter from './components/GameFooter';
+import GameHeader from './components/GameHeader';
 
 // Helper function to get the target player
 const getTargetPlayer = (players) => {
-  console.log(players);
-  console.log(players.find(player => player.id === hardcoded_response_id));
-  return players.find(player => player.id === hardcoded_response_id);
+  return players.find(player => player.id === TARGET_PLAYER_ID);
 };
 
-function App() {
+// Extract game logic to custom hooks
+function usePlayerGame() {
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [guesses, setGuesses] = useState([]);
   const [gameWon, setGameWon] = useState(false);
+  const [gameLost, setGameLost] = useState(false);
+  const [targetPlayer, setTargetPlayer] = useState(null);
   const today = new Date().toISOString().split('T')[0];
 
-  // Fix loading guesses from local storage
-  useEffect(() => {
-    const storedGuessesString = localStorage.getItem('guesses');
-    if (storedGuessesString) {
-      try {
-        const storedGuesses = JSON.parse(storedGuessesString);
-        if (storedGuesses[today]) {
-          console.log("Loading guesses from local storage:", storedGuesses[today]);
-          setGuesses(storedGuesses[today]);
-          
-          // Also set game state if player has already won
-          const lastGuess = storedGuesses[today][storedGuesses[today].length - 1];
-          if (lastGuess && lastGuess.player.id === hardcoded_response_id) {
-            setGameWon(true);
-            setSelectedPlayer(lastGuess.player);
-          }
-        }
-      } catch (error) {
-        console.error("Error parsing stored guesses:", error);
-      }
-    }
-  }, []);
-  
-  // Load players on component mount
+  // Combine related effects
   useEffect(() => {
     const loadPlayers = async () => {
       try {
         const loadedPlayers = await getPlayers();
         setPlayers(loadedPlayers);
+        const target = getTargetPlayer(loadedPlayers);
+        setTargetPlayer(target);
         setLoading(false);
       } catch (error) {
         console.error('Error loading players:', error);
@@ -58,29 +40,47 @@ function App() {
       }
     };
 
+    // Load players and guesses from storage
     loadPlayers();
+    
+    // Load saved guesses
+    const storedGuesses = loadGuesses(today);
+    if (storedGuesses.length > 0) {
+      setGuesses(storedGuesses);
+      
+      const lastGuess = storedGuesses[storedGuesses.length - 1];
+      if (lastGuess && lastGuess.player.id === TARGET_PLAYER_ID) {
+        setGameWon(true);
+        setSelectedPlayer(lastGuess.player);
+      } else if (storedGuesses.length >= MAX_GUESSES) {
+        setGameLost(true);
+      }
+    }
   }, []);
-
-  
 
   // Handle player selection
   const handleSelectPlayer = (player) => {
     setSelectedPlayer(player);
-    if (player.id === hardcoded_response_id) {
-      setGameWon(true);
-    }
     
     // Add player to guesses with match information
-    const targetPlayer = getTargetPlayer(players);
-    if (targetPlayer) {
+    const target = targetPlayer || getTargetPlayer(players);
+    
+    if (target) {
       const newGuess = {
         player,
-        matches: get_matches(player, targetPlayer)
+        matches: get_matches(player, target)
       };
       
       // Update guesses state with new guess
       const updatedGuesses = [...guesses, newGuess];
       setGuesses(updatedGuesses);
+      
+      // Check for win or loss
+      if (player.id === TARGET_PLAYER_ID) {
+        setGameWon(true);
+      } else if (updatedGuesses.length >= MAX_GUESSES) {
+        setGameLost(true);
+      }
       
       // Save UPDATED guesses to local storage
       try {
@@ -99,16 +99,21 @@ function App() {
     }
   };
 
+  return {
+    players, loading, selectedPlayer, guesses, gameWon, gameLost, targetPlayer,
+    handleSelectPlayer
+  };
+}
+
+function App() {
+  const { 
+    players, loading, selectedPlayer, guesses, gameWon, gameLost, targetPlayer,
+    handleSelectPlayer 
+  } = usePlayerGame();
+
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 shadow-sm py-4">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold text-center text-gray-800">PLAYERDLE</h1>
-        </div>
-      </header>
-
-      {/* Main content */}
+      <GameHeader />
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-md mx-auto">
           {/* Middle section - Player info */}
@@ -120,9 +125,15 @@ function App() {
                 <h2 className="text-2xl font-bold text-green-600 mb-4">You Win!</h2>
                 <PlayerInfo player={selectedPlayer} />
               </div>
+            ) : gameLost ? (
+              <div className="text-center py-4">
+                <h2 className="text-2xl font-bold text-red-600 mb-4">You Lost!</h2>
+                <p className="mb-4">The correct player was:</p>
+                <PlayerInfo player={targetPlayer} />
+              </div>
             ) : guesses.length > 0 ? (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Your Guesses</h2>
+                <h2 className="text-xl font-semibold mb-4">Your Guesses ({guesses.length}/{MAX_GUESSES})</h2>
                 <div className="space-y-4">
                   {guesses.map((guess, index) => (
                     <div key={index} className="border rounded p-3 mb-3">
@@ -130,7 +141,6 @@ function App() {
                         <div className="font-semibold">{guess.player.name}</div>
                         <div className="flex-shrink-0">
                           {(() => {
-                            console.log("Guess player:", guess.player);
                             const imageData = guess.player.images || guess.player.image || guess.player.imagedata || guess.player.img;
                             
                             if (imageData) {
@@ -230,28 +240,22 @@ function App() {
             )}
           </div>
 
-          {/* Player search box */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            {loading ? (
-              <div className="text-center py-4">Loading player data...</div>
-            ) : (
-              <PlayerSearchBox 
-                players={players} 
-                onSelectPlayer={handleSelectPlayer} 
-              />
-            )}
-          </div>
+          {!gameWon && !gameLost && (
+            <div className="bg-white rounded-lg shadow-md p-6">
+              {loading ? (
+                <div className="text-center py-4">Loading player data...</div>
+              ) : (
+                <PlayerSearchBox 
+                  players={players} 
+                  onSelectPlayer={handleSelectPlayer} 
+                />
+              )}
+            </div>
+          )}
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-4">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Playerdle - A daily football player guessing game
-          </p>
-        </div>
-      </footer>
+      <GameFooter />
     </div>
   );
 }
