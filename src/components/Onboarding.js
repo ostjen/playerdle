@@ -12,28 +12,62 @@ const Onboarding = ({ onComplete }) => {
 
   const onboardingData = [
     {
-      title: "<i><small>Welcome to</small><br></i> <b>Playerdle</b>!",
-      content: "<b>Try to guess the mystery football player</b>"
-    },
-    {
-      title: "<b>How to Play</b>",
-      content: "For each guess, you'll see feedback on how close you are to the target player based on a set of attributes."
-    },
-    {
-      title: "<b>Attributes</b>",
+      title: "Welcome to Playerdle!",
       content: `
-      <ul class="list-none space-y-2 mt-2">
-        <li class="flex items-center"><span class="mr-2">⚽</span> <b>Position</b></li>
-        <li class="flex items-center"><span class="mr-2">🌍</span> <b>Nationality</b></li>
-        <li class="flex items-center"><span class="mr-2">🏆</span> <b>Club</b></li>
-        <li class="flex items-center"><span class="mr-2">🎂</span> <b>Age</b></li>
-        <li class="flex items-center"><span class="mr-2">📏</span> <b>Height</b></li>
-      </ul>`
+        <div class="flex flex-col items-center">
+          <span class="text-2xl mb-3">⚽️ 🎮 🏆</span>
+          <p>Test your football knowledge with the ultimate <strong>player-guessing challenge!</strong></p>
+        </div>
+      `
     },
     {
-      title: "",
-      content: "Our DB contains <b>over 400 players</b> from the top leagues in the world."
-    }
+      title: "How To Play",
+      content: `
+        <div class="space-y-3">
+          <p>Each guess reveals how close you are to the target player:</p>
+          <div class="flex items-center justify-center space-x-2 my-2">
+            <span class="inline-block w-4 h-4 bg-green-500 rounded-full"></span>
+            <span><strong>Green</strong> = Exact match</span>
+          </div>
+          <div class="flex items-center justify-center space-x-2 my-2">
+            <span class="inline-block w-4 h-4 bg-yellow-500 rounded-full"></span>
+            <span><strong>Yellow</strong> = Close match</span>
+          </div>
+          <div class="flex items-center justify-center space-x-2 my-2">
+            <span class="inline-block w-4 h-4 bg-red-100 rounded-full"></span>
+            <span><strong>Red</strong> = No match</span>
+          </div>
+        </div>
+      `
+    },
+    {
+      title: "Player Traits",
+      content: `
+        <div class=" mt-8 grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3 text-left text-sm sm:text-base">
+          <div class="flex items-center">
+            <span class="mr-1 sm:mr-2">🌍</span>
+            <span><strong>Nationality</strong></span>
+          </div>
+          <div class="flex items-center">
+            <span class="mr-1 sm:mr-2">⚽️</span>
+            <span><strong>Position</strong></span>
+          </div>
+          <div class="flex items-center">
+            <span class="mr-1 sm:mr-2">🏆</span>
+            <span><strong>League</strong></span>
+          </div>
+          <div class="flex items-center">
+            <span class="mr-1 sm:mr-2">📏</span>
+            <span><strong>Height</strong></span>
+          </div>
+          <div class="flex items-center">
+            <span class="mr-1 sm:mr-2">🎂</span>
+            <span><strong>Age</strong></span>
+          </div>
+        </div>
+        <p class="mt-2 sm:mt-3">Use these clues to narrow down your search!</p>
+      `
+    },
   ];
 
   const handleTouchStart = (e) => {
@@ -128,9 +162,9 @@ const Onboarding = ({ onComplete }) => {
             style={{ transform: `translateX(-${currentPage * 100}%)` }}
           >
             {onboardingData.map((page, index) => (
-              <div key={index} className="w-full flex-shrink-0 px-16">
-                <div className="text-center py-10">
-                  <h2 className="text-3xl mb-10 text-center">{renderHtmlContent(page.title)}</h2>
+              <div key={index} className="w-full flex-shrink-0 px-12">
+                <div className="text-center py-8">
+                  <h2 className="text-3xl font-bold mb-6">{page.title}</h2>
                   <div className="text-gray-700 mb-6 text-lg">
                     {renderHtmlContent(page.content)}
                   </div>
@@ -166,7 +200,7 @@ const Onboarding = ({ onComplete }) => {
             onClick={completeOnboarding} 
             className="bg-blue-500 text-white px-8 py-3 rounded-lg font-medium text-lg hover:bg-blue-600 transition-colors"
           >
-            Get Started
+            Start Playing!
           </button>
         )}
       </div>
