@@ -5,6 +5,7 @@ import GameContainer from './components/GameContainer';
 import Onboarding from './components/Onboarding';
 import { usePlayerGame } from './hooks/usePlayerGame';
 import { hasPlayerPlayedBefore } from './utils/storage';
+import { Analytics } from "@vercel/analytics/react" 
 
 function App() {
   const [showOnboarding, setShowOnboarding] = useState(false);
