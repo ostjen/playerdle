@@ -34,22 +34,25 @@ function App() {
   };
 
   return (
-    <GameLayout>
-      {showOnboarding ? (
-        <Onboarding onComplete={handleOnboardingComplete} />
-      ) : (
-        <GameContainer
-          loading={loading}
-          gameWon={gameWon}
-          gameLost={gameLost}
-          selectedPlayer={selectedPlayer}
-          targetPlayer={targetPlayer}
-          guesses={guesses}
-          players={players}
-          onSelectPlayer={handleSelectPlayer}
-        />
-      )}
-    </GameLayout>
+    <>
+      <GameLayout>
+        {showOnboarding ? (
+          <Onboarding onComplete={handleOnboardingComplete} />
+        ) : (
+          <GameContainer
+            loading={loading}
+            gameWon={gameWon}
+            gameLost={gameLost}
+            selectedPlayer={selectedPlayer}
+            targetPlayer={targetPlayer}
+            guesses={guesses}
+            players={players}
+            onSelectPlayer={handleSelectPlayer}
+          />
+        )}
+      </GameLayout>
+      <Analytics />
+    </>
   );
 }
 
