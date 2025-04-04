@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { searchPlayers } from '../utils/playerData';
 import PlayerSearchResult from './PlayerSearchResult';
 
 const PlayerSearchBox = ({ players, onSelectPlayer, guesses = [] }) => {
+  const { t } = useTranslation();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -67,13 +69,13 @@ const PlayerSearchBox = ({ players, onSelectPlayer, guesses = [] }) => {
   return (
     <div className="relative w-full">
       <div className="mb-2 text-sm font-medium text-gray-700">
-        Search and select a player
+        {t('searchLabel')}
       </div>
       <input
         ref={inputRef}
         type="text"
         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        placeholder="Type player name..."
+        placeholder={t('searchPlaceholder')}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onClick={() => {

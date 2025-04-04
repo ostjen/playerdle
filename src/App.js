@@ -6,6 +6,8 @@ import Onboarding from './components/Onboarding';
 import { usePlayerGame } from './hooks/usePlayerGame';
 import { hasPlayerPlayedBefore } from './utils/storage';
 import { Analytics } from "@vercel/analytics/react" 
+// Import i18n configuration
+import './i18n/i18n';
 
 function App() {
   const [showOnboarding, setShowOnboarding] = useState(false);

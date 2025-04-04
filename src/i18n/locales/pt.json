@@ -1,0 +1,60 @@
+{
+  "loading": "Carregando dados dos jogadores...",
+  "gameWon": "Você Ganhou!",
+  "gameLost": "Você Perdeu!",
+  "correctPlayer": "O jogador correto era:",
+  "howToPlay": "Como Jogar ⚽︎",
+  "gameDescription": "Adivinhe o jogador misterioso em {{maxGuesses}} tentativas ou menos!",
+  "attributes": {
+    "title": "Combine estes atributos:",
+    "nation": "País",
+    "league": "Liga",
+    "position": "Posição",
+    "height": "Altura",
+    "age": "Idade"
+  },
+  "colorGuide": {
+    "title": "Guia de cores:",
+    "exact": "Exato",
+    "close": "Próximo",
+    "none": "Inválido"
+  },
+  "startGuessing": "Selecione um jogador abaixo para começar a adivinhar!",
+  "searchLabel": "Busque e selecione um jogador",
+  "searchPlaceholder": "Digite o nome do jogador...",
+  "languageSelector": "Mudar idioma",
+  "languages": {
+    "en": "Inglês",
+    "pt": "Português",
+    "es": "Espanhol"
+  },
+  "guesses": {
+    "title": "Suas Tentativas ({{current}}/{{max}})"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Bem-vindo ao Playerdle!",
+      "content": "Teste seu conhecimento de futebol com este <strong>desafio de adivinhação de jogadores!</strong>"
+    },
+    "howToPlay": {
+      "title": "Como Jogar",
+      "intro": "Cada palpite revela o quão perto você está do jogador alvo:",
+      "green": "Palpite exato",
+      "yellow": "Palpite próximo",
+      "red": "Palpite errado"
+    },
+    "playerTraits": {
+      "title": "Características do Jogador",
+      "nationality": "Nacionalidade",
+      "position": "Posição",
+      "league": "Liga",
+      "height": "Altura",
+      "age": "Idade",
+      "hint": "Use essas dicas para encontrar o jogador misterioso!"
+    },
+    "navigation": {
+      "skip": "Pular",
+      "continue": "Começar a Jogar"
+    }
+  }
+} 

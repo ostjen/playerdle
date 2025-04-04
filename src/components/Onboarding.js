@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { setOnboardingCompleted } from '../utils/storage';
 
 const Onboarding = ({ onComplete }) => {
+  const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -12,60 +14,60 @@ const Onboarding = ({ onComplete }) => {
 
   const onboardingData = [
     {
-      title: "Welcome to Playerdle!",
+      title: t('onboarding.welcome.title'),
       content: `
         <div class="flex flex-col items-center">
           <span class="text-2xl mb-3">⚽️ 🎮 🏆</span>
-          <p>Test your football knowledge with the ultimate <strong>player-guessing challenge!</strong></p>
+          <p>${t('onboarding.welcome.content')}</p>
         </div>
       `
     },
     {
-      title: "How To Play",
+      title: t('onboarding.howToPlay.title'),
       content: `
         <div class="space-y-3">
-          <p>Each guess reveals how close you are to the target player:</p>
+          <p>${t('onboarding.howToPlay.intro')}</p>
           <div class="flex items-center justify-center space-x-2 my-2">
             <span class="inline-block w-4 h-4 bg-green-500 rounded-full"></span>
-            <span><strong>Green</strong> = Exact match</span>
+            <span><strong>${t('onboarding.howToPlay.green')}</strong></span>
           </div>
           <div class="flex items-center justify-center space-x-2 my-2">
             <span class="inline-block w-4 h-4 bg-yellow-500 rounded-full"></span>
-            <span><strong>Yellow</strong> = Close match</span>
+            <span><strong>${t('onboarding.howToPlay.yellow')}</strong></span>
           </div>
           <div class="flex items-center justify-center space-x-2 my-2">
             <span class="inline-block w-4 h-4 bg-red-100 rounded-full"></span>
-            <span><strong>Red</strong> = No match</span>
+            <span><strong>${t('onboarding.howToPlay.red')}</strong></span>
           </div>
         </div>
       `
     },
     {
-      title: "Player Traits",
+      title: t('onboarding.playerTraits.title'),
       content: `
         <div class=" mt-8 grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3 text-left text-sm sm:text-base">
           <div class="flex items-center">
             <span class="mr-1 sm:mr-2">🌍</span>
-            <span><strong>Nationality</strong></span>
+            <span><strong>${t('onboarding.playerTraits.nationality')}</strong></span>
           </div>
           <div class="flex items-center">
             <span class="mr-1 sm:mr-2">⚽️</span>
-            <span><strong>Position</strong></span>
+            <span><strong>${t('onboarding.playerTraits.position')}</strong></span>
           </div>
           <div class="flex items-center">
             <span class="mr-1 sm:mr-2">🏆</span>
-            <span><strong>League</strong></span>
+            <span><strong>${t('onboarding.playerTraits.league')}</strong></span>
           </div>
           <div class="flex items-center">
             <span class="mr-1 sm:mr-2">📏</span>
-            <span><strong>Height</strong></span>
+            <span><strong>${t('onboarding.playerTraits.height')}</strong></span>
           </div>
           <div class="flex items-center">
             <span class="mr-1 sm:mr-2">🎂</span>
-            <span><strong>Age</strong></span>
+            <span><strong>${t('onboarding.playerTraits.age')}</strong></span>
           </div>
         </div>
-        <p class="mt-2 sm:mt-3">Use these clues to narrow down your search!</p>
+        <p class="mt-2 sm:mt-3">${t('onboarding.playerTraits.hint')}</p>
       `
     },
   ];
@@ -193,14 +195,14 @@ const Onboarding = ({ onComplete }) => {
             onClick={completeOnboarding} 
             className="text-blue-500 text-base underline hover:text-blue-700 transition-colors"
           >
-            Skip
+            {t('onboarding.navigation.skip')}
           </button>
         ) : (
           <button 
             onClick={completeOnboarding} 
-            className="bg-blue-500 text-white px-8 py-3 rounded-lg font-medium text-lg hover:bg-blue-600 transition-colors"
+            className="bg-blue-600 text-white text-base font-medium py-2 px-6 rounded-full hover:bg-blue-700 transition-colors"
           >
-            Start Playing!
+            {t('onboarding.navigation.continue')}
           </button>
         )}
       </div>

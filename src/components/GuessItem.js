@@ -1,48 +1,52 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PlayerImage from './PlayerImage';
 import { MatchType } from '../utils/app_utils';
 
 function GuessItem({ guess }) {
+  const { t } = useTranslation();
+  
   return (
-    <div className="border rounded p-3 mb-3">
+    <div className="border rounded p-3 mb-3 bg-white">
       <div className="flex items-center justify-between mb-2">
         <div className="font-semibold">{guess.player.name}</div>
         <div className="flex-shrink-0">
           <PlayerImage player={guess.player} />
         </div>
       </div>
+      
       <div className="grid grid-cols-5 gap-2 text-xs">
         {/* Nation column */}
         <AttributeCell 
-          label="Nation" 
+          label={t('attributes.nation')} 
           value={guess.player.nation} 
           matchType={guess.matches.nation} 
         />
         
         {/* League column */}
         <AttributeCell 
-          label="League" 
+          label={t('attributes.league')} 
           value={guess.player.league} 
           matchType={guess.matches.league} 
         />
         
         {/* Position column */}
         <AttributeCell 
-          label="Position" 
+          label={t('attributes.position')} 
           value={guess.player.position} 
           matchType={guess.matches.position} 
         />
         
         {/* Height column */}
         <AttributeCell 
-          label="Height" 
+          label={t('attributes.height')} 
           value={guess.player.height} 
           matchType={guess.matches.height} 
         />
         
         {/* Age column */}
         <AttributeCell 
-          label="Age" 
+          label={t('attributes.age')} 
           value={guess.player.age} 
           matchType={guess.matches.age} 
         />

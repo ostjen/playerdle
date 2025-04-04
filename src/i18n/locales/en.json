@@ -1,0 +1,60 @@
+{
+  "loading": "Loading player data...",
+  "gameWon": "You Win!",
+  "gameLost": "You Lost!",
+  "correctPlayer": "The correct player was:",
+  "howToPlay": "How to Play ⚽︎",
+  "gameDescription": "Guess the mystery football player in {{maxGuesses}} chances or less!",
+  "attributes": {
+    "title": "Match these attributes:",
+    "nation": "Nation",
+    "league": "League",
+    "position": "Position",
+    "height": "Height",
+    "age": "Age"
+  },
+  "colorGuide": {
+    "title": "Color guide:",
+    "exact": "Exact match",
+    "close": "Close match",
+    "none": "No match"
+  },
+  "startGuessing": "Select a player below to start guessing!",
+  "searchLabel": "Search and select a player",
+  "searchPlaceholder": "Type player name...",
+  "languageSelector": "Change language",
+  "languages": {
+    "en": "English",
+    "pt": "Portuguese",
+    "es": "Spanish"
+  },
+  "guesses": {
+    "title": "Your Guesses ({{current}}/{{max}})"
+  },
+  "onboarding": {
+    "welcome": {
+      "title": "Welcome to Playerdle!",
+      "content": "Test your football knowledge with the ultimate <strong>player-guessing challenge!</strong>"
+    },
+    "howToPlay": {
+      "title": "How To Play",
+      "intro": "Each guess reveals how close you are to the target player:",
+      "green": "Exact match",
+      "yellow": "Close match",
+      "red": "No match"
+    },
+    "playerTraits": {
+      "title": "Player Traits",
+      "nationality": "Nationality",
+      "position": "Position",
+      "league": "League",
+      "height": "Height",
+      "age": "Age",
+      "hint": "Use these clues to narrow down your search!"
+    },
+    "navigation": {
+      "skip": "Skip",
+      "continue": "Start Playing"
+    }
+  }
+} 

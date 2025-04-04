@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PlayerInfo from './PlayerInfo';
 import GameInfoCard from './GameInfoCard';
 import GuessBoard from './GuessBoard';
@@ -12,14 +13,16 @@ const GameStatus = ({
   targetPlayer, 
   guesses
 }) => {
+  const { t } = useTranslation();
+
   if (loading) {
-    return <div className="text-center py-4">Loading player data...</div>;
+    return <div className="text-center py-4">{t('loading')}</div>;
   }
 
   if (gameWon) {
     return (
       <div className="text-center py-4">
-        <h2 className="text-2xl font-bold text-green-600 mb-4">You Win!</h2>
+        <h2 className="text-2xl font-bold text-green-600 mb-4">{t('gameWon')}</h2>
         {selectedPlayer && <PlayerInfo player={selectedPlayer} />}
       </div>
     );
@@ -28,8 +31,8 @@ const GameStatus = ({
   if (gameLost) {
     return (
       <div className="text-center py-4">
-        <h2 className="text-2xl font-bold text-red-600 mb-4">You Lost!</h2>
-        <p className="mb-4">The correct player was:</p>
+        <h2 className="text-2xl font-bold text-red-600 mb-4">{t('gameLost')}</h2>
+        <p className="mb-4">{t('correctPlayer')}</p>
         {targetPlayer && <PlayerInfo player={targetPlayer} />}
       </div>
     );

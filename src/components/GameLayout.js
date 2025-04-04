@@ -6,7 +6,7 @@ const GameLayout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <GameHeader />
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className="flex-grow container mx-auto px-4 py-4">
         <div className="max-w-md mx-auto">
           {children}
         </div>
