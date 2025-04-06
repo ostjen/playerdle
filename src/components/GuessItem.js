@@ -41,7 +41,9 @@ function GuessItem({ guess }) {
         <AttributeCell 
           label={t('attributes.height')} 
           value={guess.player.height} 
-          matchType={guess.matches.height} 
+          matchType={guess.matches.height}
+          showDirection={true}
+          direction={guess.matches.heightDirection}
         />
         
         {/* Age column */}
@@ -49,17 +51,30 @@ function GuessItem({ guess }) {
           label={t('attributes.age')} 
           value={guess.player.age} 
           matchType={guess.matches.age} 
+          showDirection={true}
+          direction={guess.matches.ageDirection}
         />
       </div>
     </div>
   );
 }
 
-function AttributeCell({ label, value, matchType }) {
+function AttributeCell({ label, value, matchType, showDirection, direction }) {
   const getBackgroundColor = () => {
     if (matchType === MatchType.EXACT) return 'bg-green-500 text-white';
     if (matchType === MatchType.PARTIAL) return 'bg-yellow-500 text-white';
     return 'bg-red-100';
+  };
+
+  const renderDirectionArrow = () => {
+    if (!showDirection || matchType === MatchType.EXACT) return null;
+    
+    if (direction === 'higher') {
+      return <span className="ml-1">↑</span>;
+    } else if (direction === 'lower') {
+      return <span className="ml-1">↓</span>;
+    }
+    return null;
   };
   
   return (
@@ -67,6 +82,7 @@ function AttributeCell({ label, value, matchType }) {
       <span className="text-gray-500 text-[9px] sm:text-xs mb-0.5 sm:mb-1 truncate">{label}</span>
       <div className={`py-0.5 px-1 sm:p-1 text-center rounded text-[10px] sm:text-xs font-medium ${getBackgroundColor()}`}>
         {value}
+        {renderDirectionArrow()}
       </div>
     </div>
   );
