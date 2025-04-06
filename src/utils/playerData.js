@@ -16,14 +16,34 @@ export const getPlayers = async () => {
   }
 };
 
+// Normalize text for searching (remove accents, apostrophes, and other special characters)
+export const normalizeText = (text) => {
+  if (!text) return '';
+  
+  // Convert to lowercase and normalize accents
+  return text
+    .toLowerCase()
+    // Normalize accents to their base letters
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    // Remove apostrophes and other non-alphanumeric characters except spaces
+    .replace(/[^\w\s]/g, '')
+    // Replace multiple spaces with a single space
+    .replace(/\s+/g, ' ')
+    .trim();
+};
+
 // Search players by name
 export const searchPlayers = (query, players) => {
   if (!query || query.length < 1) return [];
   
-  const lowerQuery = query.toLowerCase();
+  const normalizedQuery = normalizeText(query);
   
   return players
-    .filter(player => player.name?.toLowerCase().includes(lowerQuery))
+    .filter(player => {
+      const normalizedName = normalizeText(player.name);
+      return normalizedName.includes(normalizedQuery);
+    })
     .slice(0, 10); // Limit to 10 results
 };
 
