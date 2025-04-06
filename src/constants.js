@@ -1,1 +1,1 @@
-export const MAX_GUESSES = 10;
+export const MAX_GUESSES = 3;
