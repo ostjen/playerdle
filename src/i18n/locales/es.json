@@ -13,6 +13,76 @@
     "height": "Altura",
     "age": "Edad"
   },
+  "positions": {
+    "GK": {
+      "short": "PO",
+      "full": "Portero"
+    },
+    "CB": {
+      "short": "DFC",
+      "full": "Defensa Central"
+    },
+    "LB": {
+      "short": "LI",
+      "full": "Lateral Izquierdo"
+    },
+    "RB": {
+      "short": "LD",
+      "full": "Lateral Derecho"
+    },
+    "LWB": {
+      "short": "CAI",
+      "full": "Carrilero Izquierdo"
+    },
+    "RWB": {
+      "short": "CAD",
+      "full": "Carrilero Derecho"
+    },
+    "CDM": {
+      "short": "MCD",
+      "full": "Mediocentro Defensivo"
+    },
+    "CM": {
+      "short": "MC",
+      "full": "Mediocentro"
+    },
+    "CAM": {
+      "short": "MCO",
+      "full": "Mediocentro Ofensivo"
+    },
+    "LM": {
+      "short": "MI",
+      "full": "Mediocampista Izquierdo"
+    },
+    "RM": {
+      "short": "MD",
+      "full": "Mediocampista Derecho"
+    },
+    "LW": {
+      "short": "EI",
+      "full": "Extremo Izquierdo"
+    },
+    "RW": {
+      "short": "ED",
+      "full": "Extremo Derecho"
+    },
+    "CF": {
+      "short": "SD",
+      "full": "Segundo Delantero"
+    },
+    "ST": {
+      "short": "DC",
+      "full": "Delantero Centro"
+    },
+    "LF": {
+      "short": "DI",
+      "full": "Delantero Izquierdo"
+    },
+    "RF": {
+      "short": "DD",
+      "full": "Delantero Derecho"
+    }
+  },
   "colorGuide": {
     "title": "Guía de colores:",
     "exact": "Coincidencia exacta",

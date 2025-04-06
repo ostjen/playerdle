@@ -13,6 +13,76 @@
     "height": "Altura",
     "age": "Idade"
   },
+  "positions": {
+    "GK": {
+      "short": "GOL",
+      "full": "Goleiro"
+    },
+    "CB": {
+      "short": "ZAG",
+      "full": "Zagueiro"
+    },
+    "LB": {
+      "short": "LE",
+      "full": "Lateral Esquerdo"
+    },
+    "RB": {
+      "short": "LD",
+      "full": "Lateral Direito"
+    },
+    "LWB": {
+      "short": "ALE",
+      "full": "Ala Esquerdo"
+    },
+    "RWB": {
+      "short": "ALD",
+      "full": "Ala Direito"
+    },
+    "CDM": {
+      "short": "VOL",
+      "full": "Volante"
+    },
+    "CM": {
+      "short": "MC",
+      "full": "Meio-campista"
+    },
+    "CAM": {
+      "short": "MEI",
+      "full": "Meia-atacante"
+    },
+    "LM": {
+      "short": "ME",
+      "full": "Meia Esquerda"
+    },
+    "RM": {
+      "short": "MD",
+      "full": "Meia Direita"
+    },
+    "LW": {
+      "short": "PE",
+      "full": "Ponta Esquerda"
+    },
+    "RW": {
+      "short": "PD",
+      "full": "Ponta Direita"
+    },
+    "CF": {
+      "short": "SA",
+      "full": "Segundo Atacante"
+    },
+    "ST": {
+      "short": "CA",
+      "full": "Centroavante"
+    },
+    "LF": {
+      "short": "AE",
+      "full": "Atacante Esquerdo"
+    },
+    "RF": {
+      "short": "AD",
+      "full": "Atacante Direito"
+    }
+  },
   "colorGuide": {
     "title": "Guia de cores:",
     "exact": "Exato",

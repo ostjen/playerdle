@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PlayerImage from './PlayerImage';
 import { MatchType } from '../utils/app_utils';
@@ -34,7 +34,8 @@ function GuessItem({ guess }) {
         <AttributeCell 
           label={t('attributes.position')} 
           value={guess.player.position} 
-          matchType={guess.matches.position} 
+          matchType={guess.matches.position}
+          isPosition={true}
         />
         
         {/* Height column */}
@@ -59,7 +60,10 @@ function GuessItem({ guess }) {
   );
 }
 
-function AttributeCell({ label, value, matchType, showDirection, direction }) {
+function AttributeCell({ label, value, matchType, showDirection, direction, isPosition }) {
+  const { t } = useTranslation();
+  const [showPositionTooltip, setShowPositionTooltip] = useState(false);
+  
   const getBackgroundColor = () => {
     if (matchType === MatchType.EXACT) return 'bg-green-500 text-white';
     if (matchType === MatchType.PARTIAL) return 'bg-yellow-500 text-white';
@@ -77,13 +81,39 @@ function AttributeCell({ label, value, matchType, showDirection, direction }) {
     return null;
   };
   
+  const getPositionFullName = (positionCode) => {
+    return t(`positions.${positionCode}.full`, positionCode);
+  };
+  
+  const getTranslatedPositionCode = (positionCode) => {
+    return t(`positions.${positionCode}.short`, positionCode);
+  };
+  
+  const handlePositionClick = () => {
+    if (isPosition) {
+      setShowPositionTooltip(!showPositionTooltip);
+    }
+  };
+  
+  // Decide what value to display based on type
+  const displayValue = isPosition ? getTranslatedPositionCode(value) : value;
+  
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
       <span className="text-gray-500 text-[9px] sm:text-xs mb-0.5 sm:mb-1 truncate">{label}</span>
-      <div className={`py-0.5 px-1 sm:p-1 text-center rounded text-[10px] sm:text-xs font-medium ${getBackgroundColor()}`}>
-        {value}
+      <div 
+        className={`py-0.5 px-1 sm:p-1 text-center rounded text-[10px] sm:text-xs font-medium ${getBackgroundColor()} ${isPosition ? 'cursor-pointer' : ''}`}
+        onClick={handlePositionClick}
+      >
+        {displayValue}
         {renderDirectionArrow()}
       </div>
+      
+      {isPosition && showPositionTooltip && (
+        <div className="absolute z-10 bg-black bg-opacity-90 text-white rounded py-1 px-2 text-[10px] sm:text-xs -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+          {getPositionFullName(value)}
+        </div>
+      )}
     </div>
   );
 }

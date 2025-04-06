@@ -13,6 +13,76 @@
     "height": "Height",
     "age": "Age"
   },
+  "positions": {
+    "GK": {
+      "short": "GK",
+      "full": "Goalkeeper"
+    },
+    "CB": {
+      "short": "CB",
+      "full": "Center Back"
+    },
+    "LB": {
+      "short": "LB",
+      "full": "Left Back"
+    },
+    "RB": {
+      "short": "RB",
+      "full": "Right Back"
+    },
+    "LWB": {
+      "short": "LWB",
+      "full": "Left Wing Back"
+    },
+    "RWB": {
+      "short": "RWB",
+      "full": "Right Wing Back"
+    },
+    "CDM": {
+      "short": "CDM",
+      "full": "Central Defensive Midfielder"
+    },
+    "CM": {
+      "short": "CM",
+      "full": "Central Midfielder"
+    },
+    "CAM": {
+      "short": "CAM",
+      "full": "Central Attacking Midfielder"
+    },
+    "LM": {
+      "short": "LM",
+      "full": "Left Midfielder"
+    },
+    "RM": {
+      "short": "RM",
+      "full": "Right Midfielder"
+    },
+    "LW": {
+      "short": "LW",
+      "full": "Left Winger"
+    },
+    "RW": {
+      "short": "RW",
+      "full": "Right Winger"
+    },
+    "CF": {
+      "short": "CF",
+      "full": "Center Forward"
+    },
+    "ST": {
+      "short": "ST",
+      "full": "Striker"
+    },
+    "LF": {
+      "short": "LF",
+      "full": "Left Forward"
+    },
+    "RF": {
+      "short": "RF",
+      "full": "Right Forward"
+    }
+  },
   "colorGuide": {
     "title": "Color guide:",
     "exact": "Exact match",
