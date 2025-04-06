@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import PlayerInfo from './PlayerInfo';
 import GameInfoCard from './GameInfoCard';
 import GuessBoard from './GuessBoard';
+import NextChallengeTimer from './NextChallengeTimer';
 import { MAX_GUESSES } from '../constants';
 
 const GameStatus = ({ 
@@ -24,6 +25,7 @@ const GameStatus = ({
       <div className="text-center py-4">
         <h2 className="text-2xl font-bold text-green-600 mb-4">{t('gameWon')}</h2>
         {selectedPlayer && <PlayerInfo player={selectedPlayer} />}
+        <NextChallengeTimer />
       </div>
     );
   }
@@ -34,6 +36,7 @@ const GameStatus = ({
         <h2 className="text-2xl font-bold text-red-600 mb-4">{t('gameLost')}</h2>
         <p className="mb-4">{t('correctPlayer')}</p>
         {targetPlayer && <PlayerInfo player={targetPlayer} />}
+        <NextChallengeTimer />
       </div>
     );
   }

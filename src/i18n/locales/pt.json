@@ -23,6 +23,10 @@
   "searchLabel": "Busque e selecione um jogador",
   "searchPlaceholder": "Digite o nome do jogador...",
   "languageSelector": "Mudar idioma",
+  "nextChallenge": "Próximo Desafio Em",
+  "hours": "Horas",
+  "minutes": "Minutos",
+  "seconds": "Segundos",
   "languages": {
     "en": "Inglês",
     "pt": "Português",

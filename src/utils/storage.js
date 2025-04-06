@@ -38,4 +38,4 @@ export const hasPlayerPlayedBefore = () => {
 
 export const setOnboardingCompleted = () => {
   localStorage.setItem('onboarding_completed', 'true');
-}; 
+};

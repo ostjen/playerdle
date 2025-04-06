@@ -23,6 +23,10 @@
   "searchLabel": "Search and select a player",
   "searchPlaceholder": "Type player name...",
   "languageSelector": "Change language",
+  "nextChallenge": "Next Challenge In",
+  "hours": "Hours",
+  "minutes": "Minutes",
+  "seconds": "Seconds",
   "languages": {
     "en": "English",
     "pt": "Portuguese",
