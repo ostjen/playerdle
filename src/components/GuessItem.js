@@ -7,15 +7,15 @@ function GuessItem({ guess }) {
   const { t } = useTranslation();
   
   return (
-    <div className="border rounded p-3 mb-3 bg-white">
+    <div className="border rounded p-2 sm:p-3 mb-3 bg-white">
       <div className="flex items-center justify-between mb-2">
-        <div className="font-semibold">{guess.player.name}</div>
+        <div className="font-semibold text-sm sm:text-base">{guess.player.name}</div>
         <div className="flex-shrink-0">
           <PlayerImage player={guess.player} />
         </div>
       </div>
       
-      <div className="grid grid-cols-5 gap-2 text-xs">
+      <div className="grid grid-cols-5 gap-1 sm:gap-2 text-[10px] sm:text-xs">
         {/* Nation column */}
         <AttributeCell 
           label={t('attributes.nation')} 
@@ -64,8 +64,8 @@ function AttributeCell({ label, value, matchType }) {
   
   return (
     <div className="flex flex-col">
-      <span className="text-gray-500 mb-1">{label}</span>
-      <div className={`p-1 text-center rounded ${getBackgroundColor()}`}>
+      <span className="text-gray-500 text-[9px] sm:text-xs mb-0.5 sm:mb-1 truncate">{label}</span>
+      <div className={`py-0.5 px-1 sm:p-1 text-center rounded text-[10px] sm:text-xs font-medium ${getBackgroundColor()}`}>
         {value}
       </div>
     </div>
