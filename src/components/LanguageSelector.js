@@ -27,7 +27,10 @@ const LanguageSelector = () => {
 
   // Get the current language flag
   const getCurrentFlag = () => {
-    switch (i18n.language) {
+    // Get the base language code (handle variants like pt-BR, en-US, etc.)
+    const currentLang = i18n.language?.split('-')[0] || 'en';
+    
+    switch (currentLang) {
       case 'pt':
         return '🇧🇷';
       case 'es':

@@ -16,10 +16,10 @@ const languageMapping = {
   'en-NZ': 'en',
   'en-ZA': 'en',
   'en-IN': 'en',
-  
+
   // Spanish variants
   'es-ES': 'es',
-  'es-MX': 'es', 
+  'es-MX': 'es',
   'es-AR': 'es',
   'es-CO': 'es',
   'es-CL': 'es',
@@ -38,7 +38,7 @@ const languageMapping = {
   'es-PR': 'es',
   'es-PA': 'es',
   'es-UY': 'es',
-  
+
   // Portuguese variants
   'pt-BR': 'pt',
   'pt-PT': 'pt',
@@ -91,4 +91,4 @@ i18n.on('languageChanged', (lng) => {
   localStorage.setItem('i18nextLng', lng);
 });
 
-export default i18n; 
+export default i18n;
