@@ -1,6 +1,6 @@
 # Playerdle
 
-A daily football player guessing game. Like wordle, but for guessing soccer players.
+A daily football player guessing game. Like wordle, but for soccer players.
 
 ## Features
 
