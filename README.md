@@ -2,9 +2,6 @@
 
 A daily football player guessing game. Like wordle, but for guessing soccer players.
 
-![Uploading image.png…]()
-
-
 ## Features
 
 - Daily new player to guess
